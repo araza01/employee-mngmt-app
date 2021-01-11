@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(`.dashboard`).hide();
+
+            $(`.menu`).mouseover(function() {
+                $(`.dashboard`).show();
+            });
+            
+            $(`.dashboard`).mouseover(function() {
+                $(`.dashboard`).show();
+            });
+            
+            $(`.dashboard`).mouseout(function() {
+                $(`.dashboard`).hide();
+            });
+            
+            $(`.menu`).mouseout(function() {
+                $(`.dashboard`).hide();
+            });
+        });
+    </script>
+</head>
+<body style="background-image: none; background-color: #F4F6F7;">
+    <section class="container-fluid navbar">
+        <article class="container">
+            <nav>
+                <ul>
+                    <li class="menu">
+                        <i class="fas fa-bars"></i>
+                    </li>
+                    <li class="home-mg">
+                        <a href="/home">Home</a>
+                    </li>
+                    <li class="emp-mg">
+                        <a href="/empl">Employee</a>
+                    </li>
+                    <li class="reg-mg">
+                        <a href="/register">Register</a>
+                    </li>
+                    <li class="logout-mg">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </section>
+
+    <section class="container">
+        <article class="dashboard">
+            <div class="all-emp">
+                <i class="fas fa-users"></i>&nbsp;
+                <a href="/all_empl">All Employees</a>
+                <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+            </div>
+            <div class="view-emp">
+                <i class="fas fa-user-alt"></i>&nbsp;
+                <a href="/view_empl">View Employee</a>
+                <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+            </div>
+            <div class="upd-emp">
+                <i class="fas fa-user-edit"></i>&nbsp;
+                <a href="/update_empl">Update Employee</a>
+                <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+            </div>
+            <div class="del-emp">
+                <i class="fas fa-user-times"></i>&nbsp;
+                <a href="/delete_empl">Delete Employee</a>
+                <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+            </div>
+            <div class="del-emp">
+                <i class="fas fa-upload"></i>&nbsp;
+                <a href="/upload">Upload Documents</a>
+                <div class="right-angle"><i class="fa fa-angle-right"></i></div>
+            </div>
+            <div class="sout-emp">
+                <i class="fas fa-user-alt-slash"></i>&nbsp;
+                <a href="/logout">Sign out</a>
+            </div>
+        </article>
+    </section>
+
+    <section class="text-center mt-4 mb-5">
+        <article class="container signup-content edit-emp">
+            <form action="/update_emp_details", method="POST">
+                <h2 class="form-header">UPDATE EMPLOYEE RECORD</h2>
+                <input type="hidden" name="id" value= "<%= records._id %>"/>
+                <div class="form-group form-input">
+                    <input type="text" name="firstname" value="<%= records.firstname %>" placeholder="First Name" class="form-control" required/>
+                </div>
+                <div class="form-group form-input">
+                    <input type="text" name="lastname" value="<%= records.lastname %>" placeholder="Last Name" class="form-control" required/>
+                </div>
+                <div class="form-group form-input">
+                    <input type="text" name="date_of_birth" value="<%= records.date_of_birth %>" placeholder="Date of Birth" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" required/>
+                </div>
+                <div class="form-group form-input">
+                    <input type="tel" name="phone" value="<%= records.phone %>" placeholder="Phone No." minlength="10" maxlength="10" pattern="[0-9]{10}" class="form-control" required/>
+                </div>
+                <div class="form-group form-input">
+                    <select name="department" id="department" class="form-control" required>
+                        <option class="form-option" value="" disabled selected hidden>Department</option>
+                        <option value="Catalog" <% if(records.department == "Catalog") { %> selected <% } %>>Catalog</option>
+                        <option value="Category" <% if(records.department == "Category") { %> selected <% } %>>Category</option>
+                        <option value="Marketing" <% if(records.department == "Marketing") { %> selected <% } %>>Marketing</option>
+                        <option value="Engineering" <% if(records.department == "Engineering") { %> selected <% } %>>Engineering</option>
+                        <option value="Operations" <% if(records.department == "Operations") { %> selected <% } %>>Operations</option>
+                    </select>
+                </div>
+                <div class="form-group form-input">
+                    <select name="designation" id="designation" class="form-control" required>
+                        <option class="form-option" value="" disabled selected hidden>Designation</option>
+                        <option value="Executive Catalog" <% if(records.designation == "Executive Catalog") { %> selected <% } %>>Executive Catalog</option>
+                        <option value="Content Writer" <% if(records.designation == "Content Writer") { %> selected <% } %>>Content Writer</option>
+                        <option value="Senior Content Writer" <% if(records.designation == "Senior Content Writer") { %> selected <% } %>>Senior Content Writer</option>
+                        <option value="Category Manager" <% if(records.designation == "Category Manager") { %> selected <% } %>>Category Manager</option>
+                        <option value="Senior Category Manager" <% if(records.designation == "Senior Category Manager") { %> selected <% } %>>Senior Category Manager</option>
+                        <option value="Asst. Manager - Category" <% if(records.designation == "Asst. Manager - Category") { %> selected <% } %>>Asst. Manager - Category</option>
+                        <option value="Image Editor" <% if(records.designation == "Image Editor") { %> selected <% } %>>Image Editor</option>
+                        <option value="Photographer" <% if(records.designation == "Photographer") { %> selected <% } %>>Photographer</option>
+                        <option value="Member Technical Staff" <% if(records.designation == "Member Technical Staff") { %> selected <% } %>>Member Technical Staff</option>
+                        <option value="Product Manager" <% if(records.designation == "Product Manager") { %> selected <% } %>>Product Manager</option>
+                        <option value="Customer Support Executive" <% if(records.designation == "Customer Support Executive") { %> selected <% } %>>Customer Support Executive</option>
+                        <option value="Manager - Marketing" <% if(records.designation == "Manager - Marketing") { %> selected <% } %>>Manager - Marketing</option>
+                        <option value="Manager - Operations" <% if(records.designation == "Manager - Operations") { %> selected <% } %>>Manager - Operations</option>
+                        <option value="Director - Category" <% if(records.designation == "Director - Category") { %> selected <% } %>>Director - Category</option>
+                        <option value="Director - Catalog" <% if(records.designation == "Director - Catalog") { %> selected <% } %>>Director - Catalog</option>
+                        <option value="Director - Engineering" <% if(records.designation == "Director - Engineering") { %> selected <% } %>>Director - Engineering</option>
+                        <option value="CMO" <% if(records.designation == "CMO") { %> selected <% } %>>CMO</option>
+                        <option value="COO" <% if(records.designation == "COO") { %> selected <% } %>>COO</option>
+                    </select>
+                </div>
+                <div class="form-group form-input">
+                    <input type="text" name="date_of_joining" value="<%= records.date_of_joining %>" placeholder="Date of Joining" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" required/>
+                </div>
+                <div class="form-group form-input">
+                    <input type="email" name="email" value="<%= records.email %>" placeholder="Your Email" class="form-control" required/>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male" <% if(records.gender == "Male") { %> checked <% } %> />
+                    <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female" <% if(records.gender == "Female") { %> checked <% } %> />
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+                <div class="form-check">
+                    <input type="submit" name="submit" value="SUBMIT" class="btn btn-primary form-submit"/>
+                </div>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

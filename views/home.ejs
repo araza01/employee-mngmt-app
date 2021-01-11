@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $(`.more-vision`).hide();
+            $(`.more-mission`).hide();
+            $(`.more-goals`).hide();
+
+            $(`.vision-btn`).click(function() {
+                $(`.more-vision`).show();
+                $(`.vision-btn`).hide();
+            });
+
+            $(`.mission-btn`).click(function() {
+                $(`.more-mission`).show();
+                $(`.mission-btn`).hide();
+            });
+
+            $(`.goals-btn`).click(function() {
+                $(`.more-goals`).show();
+                $(`.goals-btn`).hide();
+            });
+        });
+    </script>
+    
+</head>
+<body style="background-image: none; background-color: #ECF0F1;">
+    <section class="container-fluid navbar fixed-top">
+        <article class="container">
+            <nav>
+                <ul>
+                    <li class="home-mg">
+                        <a href="/home">Home</a>
+                    </li>
+                    <li class="emp-mg">
+                        <a href="/empl">Employee</a>
+                    </li>
+                    <li class="reg-mg">
+                        <a href="/register">Register</a>
+                    </li>
+                    <li class="login-mg">
+                        <a href="/login">Login</a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </section>
+
+    <section class="container">
+        <article class="vision">
+            <h1>OUR VISION</h1>
+            <img src="./Images/Vision.jpg" alt="Our Vision"/>
+            <p class="q">
+                We believe that we are on the face of the earth to make great products and that's not changing. We are constantly focusing on innovating. We believe in the simple not the complex.
+                <span class="more-vision">
+                   <br> We believe in saying no to thousands of projects, so that we can really focus on the few that are truly important and meaningful to us. We believe in deep collaboration and cross-pollination of our groups, which allow us to innovate in a way that others cannot.
+                </span>
+            </p>
+            <button class="vision-btn">Read more</button>
+        </article>
+        <article class="mission">
+            <h1>OUR MISSION</h1>
+            <img src="./Images/Mission.jpg" alt="Our Mission"/>
+            <p class="q">
+                To enable people and businesses throughout the world to realize their full potential.
+                <span class="more-mission">
+                   <br> To move the web forward and give web designers and developers the best tools and services in the world.
+                   <br> To be the company that best understands and satisfies the service and self-fulfillment needs of each individual.
+                </span>
+            </p>
+            <button class="mission-btn">Read more</button>
+        </article>
+        <article class="goals">
+            <h1>OUR GOALS</h1>
+            <img src="./Images/Goals.jpg" alt="Our Goals"/>
+            <p class="q">
+                Our goal is to empower every person and every organization on the planet to achieve more.
+                <span class="more-goals">
+                   <br> Improving people’s lives through meaningful innovation.
+                   <br> Being a great place to work where people are inspired to be the best they can be.
+                </span>
+            </p>
+            <button class="goals-btn">Read more</button>
+        </article>
+    </section>
+
+    <section class="container-fluid foot-color">
+        <article class="container">
+            <footer class="footer">
+                &copy; Copyright 2021. All Rights Reserved.
+                <br> Made with <i class="fas fa-heart"></i> by Amir Raza.
+            </footer>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(`.dashboard`).hide();
+
+            $(`.menu`).mouseover(function() {
+                $(`.dashboard`).show();
+            });
+            
+            $(`.dashboard`).mouseover(function() {
+                $(`.dashboard`).show();
+            });
+            
+            $(`.dashboard`).mouseout(function() {
+                $(`.dashboard`).hide();
+            });
+            
+            $(`.menu`).mouseout(function() {
+                $(`.dashboard`).hide();
+            });
+        });
+    </script>
+</head>
+<body style="background-image: none; background-color: #F4F6F7;">
+    <section class="container-fluid navbar">
+        <article class="container">
+            <nav>
+                <ul>
+                    <li class="home-mg">
+                        <a href="/home">Home</a>
+                    </li>
+                    <li class="emp-mg">
+                        <a href="/empl">Employee</a>
+                    </li>
+                    <li class="reg-mg">
+                        <a href="/register">Register</a>
+                    </li>
+                    <li class="logout-mg">
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </article>
+    </section>
+
+    <section class="container">
+        <article class="alert">
+            <% if(success != ``) { %>
+                <div class="alert alert-success mt-5">
+                    <strong><%= success %></strong> 
+                </div>
+            <% } %>
+        </article>
+    </section>
+</body>
+</html>
