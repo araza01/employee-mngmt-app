@@ -284,13 +284,18 @@ app.post(`/upload`, upload, async function(req, res) {
         const docLog = new Doc({
             filename: fileName
         });
-        const result = await docLog.save();
-        const docList = Doc.find({});
-        docList.find({}, function(err) {
+        const result = await docLog.save(function (err) {
             if(err) {
                 console.log(err);
             } else {
-                res.render(`alert`, {success: `File Uploaded Successfully`});
+                const docList = Doc.find({});
+                docList.find({}, function(err, doc) {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        res.render(`alert`, {records: doc, success: `File Uploaded Successfully`});
+                    }
+                });
             }
         });
     } catch (err) {
